@@ -16,17 +16,20 @@ $(document).ready(function(){
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
-
+    dancerMakerFunctionName = dancerMakerFunctionName.split(" ");
     // get the maker function for the kind of dancer we're supposed to make
-    var dancerMakerFunction = window[dancerMakerFunctionName];
+    var element = Math.floor(Math.random() * dancerMakerFunctionName.length);
+    var aDancerType = dancerMakerFunctionName[element];
+    var dancerMakerFunction = window[aDancerType];
 
     // make a dancer with a random position
-
+    debugger;
     var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    debugger;
     $('body').append(dancer.$node);
   });
 });
