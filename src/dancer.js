@@ -10,9 +10,18 @@ var makeDancer = function(top, left, timeBetweenSteps){
   this.top = top; 
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
-  this.$node = $('<span class="dancer"></span>');
+  // debugger;
+  console.log(DeathDancer === this.__proto__.constructor);
+    if(DeathDancer === this.__proto__.constructor){
+      this.$node = $('<span class="DeathDancer"></span>');
+
+    }else if(makeBlinkyDancer === this.__proto__.constructor){
+      this.$node = $('<span class="dancer"></span>');  
+    }
+
   this.step();
- this.setPosition(top, left);
+  this.setPosition(top, left);
+  //console.log()
 };
 makeDancer.prototype.step = function(){
     setTimeout(this.step.bind(this), this.timeBetweenSteps);
@@ -25,6 +34,10 @@ makeDancer.prototype.setPosition = function(top, left){
       top: top,
       left: left
     };
+    if (DeathDancer === this.__proto__.constructor){
+      debugger;
+
+    }
     this.$node.css(styleSettings);
   };
 
