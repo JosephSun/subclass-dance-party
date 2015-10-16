@@ -37,12 +37,32 @@ $(document).ready(function(){
 
   $(".LineUpButton").on("click", function(event){
      for (var i = 0; i < dancers.length; i++) {
-      debugger;
       dancers[i].lineUp(dancers[i].top, 0);
-      debugger; 
      }
 
   });
 
+
+  var mouseOverFunction = function() {
+    $(".DeathDancer").on('mouseover', function(){
+     var colorStyle = {
+      height: 300
+     }
+     for (var i = 0; i < dancers.length; i++) {
+      if (dancers[i].__proto__.constructor === SuperDancer) {
+        // debugger;
+        dancers[i].$node.css(colorStyle);
+      }
+     }
+     setTimeout(mouseOverFunction,2000);
+  });
+  }
+  setTimeout(mouseOverFunction,5000);
+
 });
+
+/*
+$( "a.offsite" ).live( "click", function() {
+  alert( "Goodbye!" ); // jQuery 1.3+
+});*/
 
