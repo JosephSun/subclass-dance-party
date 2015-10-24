@@ -23,21 +23,21 @@ var makeDancer = function(top, left, timeBetweenSteps){
   this.setPosition(top, left);
   //console.log()
 };
+
 makeDancer.prototype.step = function(){
     setTimeout(this.step.bind(this), this.timeBetweenSteps);
   };
+
 makeDancer.prototype.setPosition = function(top, left){
     // Use css top and left properties to position our <span> tag
     // where it belongs on the page. See http://api.jquery.com/css/
-    //
+    
+    //Variable for css
     var styleSettings = {
       top: top,
       left: left
     };
-    if (DeathDancer === this.__proto__.constructor){
-      debugger;
 
-    }
     this.$node.css(styleSettings);
   };
 
